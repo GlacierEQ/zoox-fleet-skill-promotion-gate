@@ -2,50 +2,29 @@
 
 Independent GlacierEQ portfolio exhibit aligned to **Zoox** operating themes.
 
-> **Not affiliated.** This repository is not affiliated with, endorsed by, employed by, or deployed at Zoox.
-> No proprietary access, production deployment, customer impact, or company partnership is claimed.
+> **Not affiliated.** This repository is not affiliated with, endorsed by, employed by, or deployed at Zoox. No proprietary access, production deployment, customer impact, or company partnership is claimed.
 
-## Bottleneck (GlacierEQ hypothesis)
+## Implemented mechanism
 
-Integrating vehicle safety architecture, autonomy, mission control, manufacturing, and market operations.
+`FleetSkillPromotionGate` promotes a skill version only after fresh, scenario-complete validation receipts establish both multi-unit coverage and independent failure-domain coverage.
 
-**Brick wall:** Preserving no-single-point-failure safety and reliable remote and operational support across diverse environments.
+Hard boundaries:
 
-**Observed public pressure (snapshot hypothesis):** A purpose-built robotaxi must scale from engineering validation into public service and manufacturing.
+- each unit may contribute only one receipt;
+- target-version failures force quarantine;
+- stale, future, or partial-scenario receipts do not count;
+- promotion requires minimum distinct units and failure domains;
+- required scenarios must be covered;
+- incomplete evidence emits a deterministic quarantine token;
+- a later complete evidence set can emit a release token bound to the prior quarantine.
 
-## Innovation mechanism
+## Proof surface
 
-**Fleet Skill Promotion Gate** — Promote skills only after multi-unit validation receipts; quarantine partial skills.
+- `src/fleet_skill_promotion_gate.py` — multi-unit promotion/quarantine mechanism
+- `tests/test_fleet_skill_promotion_gate.py` — unit count, failure domains, failure, staleness, partial coverage, release tests
+- `scripts/operate.py` — direct three-unit/two-domain promotion execution
+- `.github/workflows/tests.yml` — pytest + operate CI
 
-## Target roles
+## Current boundary
 
-- Applied AI Systems Architect
-- Forward-Deployed Engineer
-- AI Infrastructure / Governance Engineer
-
-## Application move
-
-Create a redundancy and mission-control architecture exhibit using non-vehicle simulations.
-
-## Current scaffold state
-
-This leaf is a **scaffold**: contracts, tests, and a stub mechanism exist so another engineer/AI can fill production-grade code without inventing company affiliation.
-
-| Surface | Path |
-|---------|------|
-| Mechanism stub | `src/fleet_skill_promotion_gate.py` |
-| Operate entry | `scripts/operate.py` |
-| Contract tests | `tests/` |
-| Target contract | `machine/target-contract.json` |
-| **AI fill-in brief** | **`DEV_UP_INSTRUCTIONS.md`** |
-| Issue contract | `ISSUE_CONTRACT.md` |
-
-## Non-claims
-
-- No Zoox employment, endorsement, proprietary data, or production use
-- No customer, revenue, latency, or scale claims without separate receipts
-- Scaffold tests define **intended behavior**, not verified production excellence
-
-## Next gate
-
-Define a no-single-point-failure model and test representative failure paths.
+This is a synthetic safety-governance reference model. It does not use vehicle telemetry, proprietary autonomy systems, or production fleet data. The next gate is a richer non-vehicle failure simulation with explicit correlated-failure scenarios.
