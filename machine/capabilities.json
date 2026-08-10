@@ -1,0 +1,12 @@
+{
+  "schema": "glaciereq.repo-capabilities.v1",
+  "repository": "GlacierEQ/zoox-fleet-skill-promotion-gate",
+  "capabilities": [
+    {
+      "id": "fleet-skill-promotion-gate",
+      "name": "Fleet Skill Promotion Gate",
+      "status": "SCAFFOLD",
+      "module": "src/fleet_skill_promotion_gate.py"
+    }
+  ]
+}

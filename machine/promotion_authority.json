@@ -1,0 +1,11 @@
+{
+  "schema": "glaciereq.promotion-authority-grant.v1",
+  "repository": "GlacierEQ/zoox-fleet-skill-promotion-gate",
+  "source_sha": "bd542550e1bb7adade4f5d8d666de620a0eba9b589838d3f999adab3a4cc96c6",
+  "proof_receipt_digest": "3e3e9934fd5ed7d5ccba8ed76eb1bfb0aff9ae06a71174dfca1409e2df3783bc",
+  "not_after": 1788948708.0013618,
+  "mac": "d9d730ce9b70e3143214593a6f4a5146a719c1f38c9940b007054a6343ce7f02",
+  "issuer": "local_operator_promotion_authority",
+  "verified": true,
+  "secret_ref": "src/promotion_authority.py::LOCAL_OPERATOR_SECRET"
+}
